@@ -2,7 +2,7 @@
 
 
 function isEven(x, y) {
-    if (isNaN(parseFloat(x)) && isNaN(parseFloat(y))) {
+    if (!isNaN(parseFloat(x)) && !isNaN(parseFloat(y))) {
         if ((x + y) % 2 === 0) {
             return true
         }
@@ -41,16 +41,12 @@ do {
 
 let computerNumber = createRandomNumber(1, 5)
 
-if (userChoice === 'pari' && (isEven(userNumber, computerNumber))) {
+if (userChoice === 'pari' && (isEven(userNumber, computerNumber)) || userChoice === 'dispari' && !(isEven(userNumber, computerNumber))) {
 
     alert("Hai vinto!")
 
 }
-else if (userChoice === 'dispari' && !(isEven(userNumber, computerNumber))) {
 
-    alert("Hai vinto!")
-
-}
 else {
 
     alert("Hai perso!")
