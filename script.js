@@ -2,7 +2,7 @@
 
 
 function isEven(x, y) {
-    if (typeof (x) === 'number' && typeof (y) === 'number') {
+    if (isNaN(parseFloat(x)) && isNaN(parseFloat(y))) {
         if ((x + y) % 2 === 0) {
             return true
         }
@@ -12,7 +12,7 @@ function isEven(x, y) {
 
 }
 function createRandomNumber(min, max) {
-    if (typeof (min) !== 'number' || typeof (max) !== 'number'  ) {
+    if (isNaN(parseFloat(min)) || isNaN(parseFloat(max))) {
         return NaN
     }
     else
@@ -28,22 +28,31 @@ let userChoice
 let userNumber
 
 do {
+
     userChoice = prompt("Scegli: pari o dispari?")
+
 } while (userChoice !== "pari" && userChoice !== "dispari")
 
 do {
+
     userNumber = prompt("Scegli un numero da 1 a 5")
-} while (typeof (userNumber) !== 'number' || userNumber > 5 || userNumber < 1)
+
+} while (isNaN(parseFloat(userNumber)) || userNumber > 5 || userNumber < 1)
+
 let computerNumber = createRandomNumber(1, 5)
+
 if (userChoice === 'pari' && (isEven(userNumber, computerNumber))) {
+
     alert("Hai vinto!")
 
 }
 else if (userChoice === 'dispari' && !(isEven(userNumber, computerNumber))) {
+
     alert("Hai vinto!")
 
 }
 else {
+
     alert("Hai perso!")
 
 }
